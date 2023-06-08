@@ -1,6 +1,6 @@
 import { ajax } from 'rxjs/ajax';
-import { switchMap, map, mergeAll } from 'rxjs/operators';
-import { zip, of, forkJoin } from 'rxjs';
+import { switchMap, map } from 'rxjs/operators';
+import { zip, of } from 'rxjs';
 
 /**
  * Ejercicio: 
@@ -39,27 +39,27 @@ import { zip, of, forkJoin } from 'rxjs';
 */
 
 
-(() => {
+(() =>{
 
     // No tocar ========================================================
-    const SW_API = 'https://swapi.dev/api';
-    const getRequest = (url: string) => ajax.getJSON<any>(url);
+    const SW_API = 'https://swapi.dev/api';                     
+    const getRequest = ( url: string ) => ajax.getJSON<any>(url);
     // ==================================================================
 
-    getRequest(`${SW_API}/people/1/`)
-        /* trabajando desde aqui */
-        .pipe(
-            switchMap((personaje) =>
-                getRequest(`${SW_API}/species/1/`).pipe(
-                    map((especie) => ({ especie, personaje }))
-                )
-            )
-        )
-        /* fin de la sección a modificar */
-        .subscribe(console.log);
+    // Realizar el llamado al URL para obtener a Luke Skywalker
+    getRequest(`Aquí va un URL`).pipe(
+        // Realizar los operadores respectivos aquí
+        
+
+
+        
+
+    // NO TOCAR el subscribe ni modificarlo ==
+    ).subscribe( console.log )           // ==
+    // =======================================
 
 
 
 })();
 
-
+		
